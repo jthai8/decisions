@@ -90,38 +90,34 @@ for(i=0; i<=100; i++) {
 //if user response does not equal random number then alert too high or too low.
 //prompt for another guess.
 
-function hiLo() {
-  var random = Math.floor(Math.random()*100)+1;
-  var guess = parseInt(prompt ("Guess a number between 1-100"));
-  while (random != guess) {
-    guess;
-    console.log (random);
-    if (random > guess){
-        alert ("Number is too low");
-        guess = parseInt(prompt("Guess again"));
-    } else if (random < guess){
-        alert ("Number is too high");
-        guess = parseInt(prompt("Guess again"));
-    } else {
-        alert ("You WIN!");
-    }
-  }
-}
 
 //hiLo
 function hiLo() {
   var random = Math.floor(Math.random()*100)+1;
+  var name = prompt("Please enter your first name.");
   var guess = parseInt(prompt ("Guess a number between 1-100"));
-  while (random != guess) {
+  var count = 0;
+  while (random != guess && count < 7) {
     guess;
     console.log (random);
-    if (random > guess){
-        alert ("Number is too low");
-        guess = parseInt(prompt("Guess again"));
+    if (Number.isNaN(guess)) {
+      alert("Please enter a numeric value.");
+      guess = parseInt(prompt("Guess again"));
+    } else if (random > guess){
+      alert ("Number is too low");
+      count = count + 1;
+      console.log(count);
+      guess = parseInt(prompt("Guess again"));
     } else if (random < guess){
-        alert ("Number is too high");
-        guess = parseInt(prompt("Guess again"));
+      alert ("Number is too high");
+      count = count + 1;
+      console.log(count);
+      guess = parseInt(prompt("Guess again"));
     }
   }
-  alert ("You WIN!");
+  if (count === 7) {
+    alert("Too many guesses. You lose.");
+  } else {
+    alert ("You won "+ name + "!");
+  }
 }
