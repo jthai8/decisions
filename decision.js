@@ -100,18 +100,17 @@ function hiLo() {
   while (random != guess && count < 7) {
     guess;
     console.log (random);
+    //below tests if the value is not a numeric entry
     if (Number.isNaN(guess)) {
       alert("Please enter a numeric value.");
       guess = parseInt(prompt("Guess again"));
     } else if (random > guess){
       alert ("Number is too low");
       count = count + 1;
-      console.log(count);
       guess = parseInt(prompt("Guess again"));
     } else if (random < guess){
       alert ("Number is too high");
       count = count + 1;
-      console.log(count);
       guess = parseInt(prompt("Guess again"));
     }
   }
